@@ -4,6 +4,8 @@ TurboX是一款下载加速软件，它采用了我的Tondar API，通过迅雷�
 **TurboX只适用于Mac OS X**  
 **TurboX需要您有迅雷离线账号**
 **TurboX需要配合Alfred达到最优效果**
+
+**TurboX[下载链接](https://github.com/lqik2004/TurboX/raw/master/TurboX.alfredextension)**
 ###特性
 * 一键下载
 * 解决死链
