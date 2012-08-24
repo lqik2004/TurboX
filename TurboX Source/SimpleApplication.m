@@ -65,17 +65,23 @@
 
 bool isCheckLoginInfo=NO;
 -(NSString*) gdriveid{
+    NSString* gid=nil;
     HYXunleiLixianAPI *TondarAPI=[HYXunleiLixianAPI new];
+    static NSUInteger count=0;
     if([self login]){
-        [TondarAPI readCompleteTasksWithPage:1];
+        while(!gid&&count<3){
+            count++;
+            [TondarAPI readCompleteTasksWithPage:1];
+            gid=[TondarAPI GDriveID];
+        }
     }
-    return [TondarAPI GDriveID];
+    return gid;
 }
 
 -(BOOL) login{
     static NSUInteger count=0;
     isCheckLoginInfo=NO;
-    while(!isCheckLoginInfo||count<3){
+    while(!isCheckLoginInfo&&count<3){
         count++;
         NSString* username=[self logininfoFromKeyChain:LOGIN_USERNAME];
         NSString* password=[self logininfoFromKeyChain:LOGIN_PASSWORD];
