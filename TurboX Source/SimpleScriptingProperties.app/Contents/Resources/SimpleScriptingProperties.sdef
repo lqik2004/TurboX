@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
+
+<!--
+
+     File: SimpleScriptingProperties.sdef
+ Abstract: Starting sdef for a scriptable application.
+  Version: 1.2
+ 
+ Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
+ Inc. ("Apple") in consideration of your agreement to the following
+ terms, and your use, installation, modification or redistribution of
+ this Apple software constitutes acceptance of these terms.  If you do
+ not agree with these terms, please do not use, install, modify or
+ redistribute this Apple software.
+ 
+ In consideration of your agreement to abide by the following terms, and
+ subject to these terms, Apple grants you a personal, non-exclusive
+ license, under Apple's copyrights in this original Apple software (the
+ "Apple Software"), to use, reproduce, modify and redistribute the Apple
+ Software, with or without modifications, in source and/or binary forms;
+ provided that if you redistribute the Apple Software in its entirety and
+ without modifications, you must retain this notice and the following
+ text and disclaimers in all such redistributions of the Apple Software.
+ Neither the name, trademarks, service marks or logos of Apple Inc. may
+ be used to endorse or promote products derived from the Apple Software
+ without specific prior written permission from Apple.  Except as
+ expressly stated in this notice, no other rights or licenses, express or
+ implied, are granted by Apple herein, including but not limited to any
+ patent rights that may be infringed by your derivative works or by other
+ works in which the Apple Software may be incorporated.
+ 
+ The Apple Software is provided by Apple on an "AS IS" basis.  APPLE
+ MAKES NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION
+ THE IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY AND FITNESS
+ FOR A PARTICULAR PURPOSE, REGARDING THE APPLE SOFTWARE OR ITS USE AND
+ OPERATION ALONE OR IN COMBINATION WITH YOUR PRODUCTS.
+ 
+ IN NO EVENT SHALL APPLE BE LIABLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL
+ OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) ARISING IN ANY WAY OUT OF THE USE, REPRODUCTION,
+ MODIFICATION AND/OR DISTRIBUTION OF THE APPLE SOFTWARE, HOWEVER CAUSED
+ AND WHETHER UNDER THEORY OF CONTRACT, TORT (INCLUDING NEGLIGENCE),
+ STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+ Copyright (C) 2011 Apple Inc. All Rights Reserved.
+ 
+
+-->
+
+	<!-- declare the namespace for using XInclude so we can include the standard suite -->
+<dictionary xmlns:xi="http://www.w3.org/2003/XInclude">
+
+
+		<!-- use XInclude to include the standard suite -->
+	<xi:include href="file:///System/Library/ScriptingDefinitions/CocoaStandard.sdef" xpointer="xpointer(/dictionary/suite)"/>
+
+
+		<!-- specific suite(s) for the application follow... -->
+	<suite name="Simple Scripting Properties Suite" code="SsPs"
+		description="SimpleScriptingProperties application specific scripting facilities.">
+		
+		<!-- put your application specific scripting suite information here -->
+		
+		
+			<!-- for the purposes of this sample, we'll define an enumeration
+			that we will use as a value type for storing in one of our properties.
+			 -->
+		<enumeration name="simplicitylevel" code="SiLv">
+			<cocoa name="SimplicityLevel"/>
+			<enumerator name="Basic" code="SiBa" description="Basic">
+				<cocoa name="Basic"/>
+			</enumerator>
+			<enumerator name="Introductory" code="SiIn" description="Introductory">
+				<cocoa name="Introductory"/>
+			</enumerator>
+			<enumerator name="Advanced" code="SiAd" description="Advanced">
+				<cocoa name="Advanced"/>
+			</enumerator>
+			<enumerator name="Difficult" code="SiDi" description="Difficult">
+				<cocoa name="Difficult"/>
+			</enumerator>
+		</enumeration>
+		
+				
+		<class name="application" code="capp" 
+					description="Our simple application class." inherits="application">
+
+			<!-- the following names the Objective-C class where Cocoa will look for
+			the property accessor methods for the properties we define for
+			this AppleScript class. -->
+			<cocoa class="NSApplication"/>
+			
+			<!-- properties defined on the main application container -->
+			
+			
+			<!-- the 'special version' property.
+				The term 'version' already has a four letter code defined for
+				it in the AppleScript Terminology and Apple Event Codes listings.
+				See: http://developer.apple.com/releasenotes/AppleScript/ASTerminology_AppleEventCodes/TermsAndCodes.html
+				Because 'version' already has a code, we use that code here.
+				Also, notice we have defined 'version' as a read-only property.
+			-->
+			<property name="special version" code="SiVs" description="the application version" type="text" access="r">
+				<cocoa key="specialVersion"/>
+			</property>
+
+
+
+
+			<!-- the 'input value' property.
+				There's no code defined for the term 'input value' in the AppleScript Terminology and
+				Apple Event Codes listing, so we just made one up.
+			-->
+			<property name="input value" code="SiIv" description="an input integer value" type="integer" access="rw">
+				<cocoa key="inputValue"/>
+			</property>
+			
+			
+			
+			<!-- the 'scaling factor' property.
+				There's no code defined for the term 'scaling factor' in the AppleScript Terminology and
+				Apple Event Codes listing, so we just made one up.
+			-->
+			<property name="scaling factor" code="SiSc" description="a real number property" type="real" access="rw">
+				<cocoa key="scalingFactor"/>
+			</property>
+			
+			
+			
+			<!-- the 'output value' property.
+				There's no code defined for the term 'output value' in the AppleScript Terminology and
+				Apple Event Codes listing, so we just made one up.  Note: this is defined as a read-only
+				property.  it is the product
+			-->
+			<property name="output value" code="SiOv"
+						description="the product of the input value and the scaling factor" type="real" access="r">
+				<cocoa key="outputValue"/>
+			</property>
+
+		
+			
+					
+			<!-- the 'description' property.
+				The term 'description' already has a four letter code defined
+				for it in the AppleScript Terminology and Apple Event Codes listings.
+				See: http://developer.apple.com/releasenotes/AppleScript/ASTerminology_AppleEventCodes/TermsAndCodes.html
+				Because 'modification date' already has a code, we use that code here.
+			-->
+			<property name="description" code="desc" description="an example of a string value property" type="text" access="rw"/>
+			
+			
+			
+			<!-- the 'ready' property.
+				This is an example of a read-write boolean property.  There's no code
+				defined for the term 'ready' in the AppleScript Terminology and
+				Apple Event Codes listing, so we just made one up.
+			-->
+			<property name="ready" code="SiRd" description="a boolean value property" type="boolean" access="rw"/>
+			
+			
+			
+			<!-- the 'modification date' property.
+				We wanted to show how to use a date data type, so here we'll use
+				the 'modification date' terminology.  The term 'modification date' already
+				has a four letter code defined for it in the AppleScript Terminology and
+				Apple Event Codes listings.
+				See: http://developer.apple.com/releasenotes/AppleScript/ASTerminology_AppleEventCodes/TermsAndCodes.html
+				Because 'modification date' already has a code, we use that code here.
+			-->
+			<property name="modification date" code="asmo" description="last modified date" type="date" access="rw">
+				<cocoa key="modificationDate"/>
+			</property>
+
+
+
+			<!-- the 'simplicity level' property.
+				Here, we're using the 'simplicitylevel' enumeration
+				we defined earlier in the suite. */
+			-->
+			<property name="simplicity level" code="SsLv" description="the simplicity level" type="simplicitylevel" access="rw">
+				<cocoa key="simplicityLevel"/>
+			</property>
+			
+			
+			<!-- the 'simplicity factor' property.
+				There's no code defined for the term 'simplicity factor' in the AppleScript Terminology and
+				Apple Event Codes listing, so we just made one up.  Note: this is defined as a read-only
+				property. 
+			-->
+			<property name="simplicity factor" code="SiFt"
+						description="a numeric representation of the simplicity factor" type="real" access="r">
+				<cocoa key="simplicityFactor"/>
+			</property>
+
+				
+		</class>
+
+	</suite>
+
+
+</dictionary>

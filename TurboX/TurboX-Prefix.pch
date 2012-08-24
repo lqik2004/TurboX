@@ -1,7 +1,0 @@
-//
-// Prefix header for all source files of the 'TurboX' target in the 'TurboX' project
-//
-
-#ifdef __OBJC__
-    #import <Foundation/Foundation.h>
-#endif
