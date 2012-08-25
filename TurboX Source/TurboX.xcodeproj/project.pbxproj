@@ -11,7 +11,11 @@
 		52FFD7190B8FB0AC006A9151 /* SimpleApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FFD7180B8FB0AC006A9151 /* SimpleApplication.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
-		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		A888BC2115E90F5200953B4E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A888BC2015E90F5200953B4E /* SystemConfiguration.framework */; };
+		A888BC2315E90F5900953B4E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A888BC2215E90F5900953B4E /* libz.dylib */; };
+		A888BC2515E90F6100953B4E /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A888BC2415E90F6100953B4E /* CoreServices.framework */; };
+		A888BC2715E90F6A00953B4E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A888BC2615E90F6A00953B4E /* Cocoa.framework */; };
+		A888BC2915E90F7000953B4E /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A888BC2815E90F7000953B4E /* libicucore.dylib */; };
 		A8F884BB15E7845F00E555A4 /* download.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F884BA15E7845F00E555A4 /* download.m */; };
 		A8F884C615E7894D00E555A4 /* aria2c in Resources */ = {isa = PBXBuildFile; fileRef = A8F884C415E7894D00E555A4 /* aria2c */; };
 		A8F884F315E791B600E555A4 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F884CC15E791B500E555A4 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -23,7 +27,7 @@
 		A8F884F915E791B600E555A4 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F884DA15E791B500E555A4 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A8F884FA15E791B600E555A4 /* ConvertURL.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F884DD15E791B500E555A4 /* ConvertURL.m */; };
 		A8F884FB15E791B600E555A4 /* HYXunleiLixianAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F884DF15E791B500E555A4 /* HYXunleiLixianAPI.m */; };
-		A8F884FC15E791B600E555A4 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F884E215E791B500E555A4 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A8F884FC15E791B600E555A4 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F884E215E791B500E555A4 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -fno-objc-gc"; }; };
 		A8F884FD15E791B600E555A4 /* Kuai.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F884E415E791B500E555A4 /* Kuai.m */; };
 		A8F884FE15E791B600E555A4 /* md5.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F884E615E791B500E555A4 /* md5.m */; };
 		A8F884FF15E791B600E555A4 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F884E815E791B500E555A4 /* NSData+Base64.m */; };
@@ -32,11 +36,6 @@
 		A8F8850215E791B600E555A4 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F884EE15E791B500E555A4 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A8F8850315E791B600E555A4 /* URlEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F884F015E791B500E555A4 /* URlEncode.m */; };
 		A8F8850415E791B600E555A4 /* XunleiItemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F884F215E791B500E555A4 /* XunleiItemInfo.m */; };
-		A8F8850615E7920600E555A4 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F8850515E7920600E555A4 /* libicucore.dylib */; };
-		A8F8850815E7920E00E555A4 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F8850715E7920E00E555A4 /* CoreServices.framework */; };
-		A8F8850A15E7921400E555A4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F8850915E7921400E555A4 /* CFNetwork.framework */; };
-		A8F8850C15E7922E00E555A4 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F8850B15E7922E00E555A4 /* libz.dylib */; };
-		A8F8850E15E7923600E555A4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F8850D15E7923600E555A4 /* SystemConfiguration.framework */; };
 		A8F8851015E79E1B00E555A4 /* Authenticate.app in Resources */ = {isa = PBXBuildFile; fileRef = A8F8850F15E79E1B00E555A4 /* Authenticate.app */; };
 		A8F8851215E7ADCE00E555A4 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A8F8851115E7ADCE00E555A4 /* icon.png */; };
 		D028A76113E88F0300584530 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D028A76313E88F0300584530 /* MainMenu.xib */; };
@@ -44,11 +43,7 @@
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
-		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* SimpleScriptingProperties_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleScriptingProperties_Prefix.pch; sourceTree = "<group>"; };
 		52D3AF780B8E7DF600497DA4 /* TurboX.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TurboX.sdef; sourceTree = "<group>"; };
 		52FFD7170B8FB0AC006A9151 /* SimpleApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleApplication.h; sourceTree = "<group>"; };
@@ -56,6 +51,11 @@
 		52FFD71A0B8FB0BF006A9151 /* scriptLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scriptLog.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* TurboX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TurboX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A888BC2015E90F5200953B4E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		A888BC2215E90F5900953B4E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
+		A888BC2415E90F6100953B4E /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/CoreServices.framework; sourceTree = DEVELOPER_DIR; };
+		A888BC2615E90F6A00953B4E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		A888BC2815E90F7000953B4E /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/usr/lib/libicucore.dylib; sourceTree = DEVELOPER_DIR; };
 		A8F884B915E7845F00E555A4 /* download.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = download.h; sourceTree = "<group>"; };
 		A8F884BA15E7845F00E555A4 /* download.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = download.m; sourceTree = "<group>"; };
 		A8F884C415E7894D00E555A4 /* aria2c */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = aria2c; sourceTree = "<group>"; };
@@ -99,11 +99,6 @@
 		A8F884F015E791B500E555A4 /* URlEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URlEncode.m; sourceTree = "<group>"; };
 		A8F884F115E791B500E555A4 /* XunleiItemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XunleiItemInfo.h; sourceTree = "<group>"; };
 		A8F884F215E791B500E555A4 /* XunleiItemInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XunleiItemInfo.m; sourceTree = "<group>"; };
-		A8F8850515E7920600E555A4 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
-		A8F8850715E7920E00E555A4 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
-		A8F8850915E7921400E555A4 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		A8F8850B15E7922E00E555A4 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		A8F8850D15E7923600E555A4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A8F8850F15E79E1B00E555A4 /* Authenticate.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = Authenticate.app; sourceTree = "<group>"; };
 		A8F8851115E7ADCE00E555A4 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		D028A76213E88F0300584530 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -114,12 +109,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8F8850E15E7923600E555A4 /* SystemConfiguration.framework in Frameworks */,
-				A8F8850C15E7922E00E555A4 /* libz.dylib in Frameworks */,
-				A8F8850A15E7921400E555A4 /* CFNetwork.framework in Frameworks */,
-				A8F8850815E7920E00E555A4 /* CoreServices.framework in Frameworks */,
-				A8F8850615E7920600E555A4 /* libicucore.dylib in Frameworks */,
-				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				A888BC2915E90F7000953B4E /* libicucore.dylib in Frameworks */,
+				A888BC2715E90F6A00953B4E /* Cocoa.framework in Frameworks */,
+				A888BC2515E90F6100953B4E /* CoreServices.framework in Frameworks */,
+				A888BC2315E90F5900953B4E /* libz.dylib in Frameworks */,
+				A888BC2115E90F5200953B4E /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,24 +130,6 @@
 				A8F884BA15E7845F00E555A4 /* download.m */,
 			);
 			name = Classes;
-			sourceTree = "<group>";
-		};
-		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
-			);
-			name = "Linked Frameworks";
-			sourceTree = "<group>";
-		};
-		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
-				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
-				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
@@ -203,13 +179,11 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A8F8850D15E7923600E555A4 /* SystemConfiguration.framework */,
-				A8F8850B15E7922E00E555A4 /* libz.dylib */,
-				A8F8850915E7921400E555A4 /* CFNetwork.framework */,
-				A8F8850715E7920E00E555A4 /* CoreServices.framework */,
-				A8F8850515E7920600E555A4 /* libicucore.dylib */,
-				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
-				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+				A888BC2815E90F7000953B4E /* libicucore.dylib */,
+				A888BC2615E90F6A00953B4E /* Cocoa.framework */,
+				A888BC2415E90F6100953B4E /* CoreServices.framework */,
+				A888BC2215E90F5900953B4E /* libz.dylib */,
+				A888BC2015E90F5200953B4E /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -391,7 +365,10 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_TEST_FLAGS = "-licucore";
 				PRODUCT_NAME = TurboX;
+				SDKROOT = macosx10.7;
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
 			};
@@ -405,7 +382,10 @@
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_TEST_FLAGS = "-licucore";
 				PRODUCT_NAME = TurboX;
+				SDKROOT = macosx10.7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
