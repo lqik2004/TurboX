@@ -1,6 +1,6 @@
 #TurboX
 ******************
-TurboX是一款下载加速软件，它采用了我的Tondar API，通过迅雷离线作为中转实现高速下载。 
+TurboX是一款下载加速软件，它采用了我的[Tondar API](https://github.com/lqik2004/xunlei-lixian-api-PureObjc)，通过迅雷离线作为中转实现高速下载。 
 **TurboX需要您有迅雷离线账号**
 **TurboX需要配合Alfred达到最优效果**  
 **TurboX[下载链接](https://github.com/lqik2004/TurboX/raw/master/TurboX.alfredextension)**  
