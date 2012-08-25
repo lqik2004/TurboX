@@ -80,9 +80,6 @@
             <property name="xunleiurl" code="xurl" description="迅雷URL" type="text" access="r">
                 <cocoa key="xunleiURL"/>
             </property>
-            <property name="login" code="xurl" description="迅雷URL" type="text" access="r">
-                <cocoa key="xunleiURL"/>
-            </property>
 			
 			<!-- the 'special version' property.
 				The term 'version' already has a four letter code defined for

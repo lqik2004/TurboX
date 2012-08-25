@@ -4,6 +4,7 @@ TurboX是一款下载加速软件，它采用了我的Tondar API，通过迅雷�
 **TurboX需要您有迅雷离线账号**
 **TurboX需要配合Alfred达到最优效果**  
 **TurboX[下载链接](https://github.com/lqik2004/TurboX/raw/master/TurboX.alfredextension)**  
+**演示视频[地址](http://d.pr/v/qxhJ)**
 *******************
 ###目前支持的下载客户端（不断更新）
 * SpeedDownload  
@@ -35,6 +36,7 @@ TurboX 使用起来非常简单
 ![](https://img.skitch.com/20120824-kuqm9rss9us87673f5snighe3p.jpg)  
 *********************
 ###更新日志
+* v1.3 增加了对Growl支持，给以适当提示。同时增强了连接可靠性
 * v1.2 几乎重写了代码，采用了不同的构造方式，更稳定更方便
 * v1.0 第一版发布  
  
