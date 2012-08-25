@@ -61,7 +61,6 @@ typedef enum {
     //第一步登陆，验证用户名密码
     NSURL *url = [NSURL URLWithString:LoginURL];
     ASIFormDataRequest*request = [ASIFormDataRequest requestWithURL:url];
-    
     [request setPostValue:aName forKey:@"u"];
     [request setPostValue:enPassword forKey:@"p"];
     [request setPostValue:vCode forKey:@"verifycode"];
@@ -70,11 +69,15 @@ typedef enum {
     [request setUseSessionPersistence:YES];
     [request setUseCookiePersistence:YES];
     [request startSynchronous];
+    //把response中的Cookie添加到CookieStorage
+    [self _addResponseCookietoCookieStorage:[request responseCookies]];
     //完善所需要的cookies，并收到302响应跳转
     NSString *timeStamp=[self _currentTimeString];
     NSURL *redirectUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://dynamic.cloud.vip.xunlei.com/login?cachetime=%@&cachetime=%@&from=0",timeStamp,timeStamp]];
     ASIHTTPRequest* redirectURLrequest = [ASIHTTPRequest requestWithURL:redirectUrl];
     [redirectURLrequest startSynchronous];
+    //把response中的Cookie添加到CookieStorage
+    [self _addResponseCookietoCookieStorage:[redirectURLrequest responseCookies]];
     //验证是否登陆成功
     NSString *userid=[self userID];
     if(userid.length>1){
@@ -91,33 +94,35 @@ typedef enum {
     //join the two strings
     enPwd_tmp=[NSString stringWithFormat:@"%@%@",enPwd_tmp,upperVerifyCode];
     NSString *pwd=[md5 md5HexDigestwithString:enPwd_tmp];
-//    NSLog(@"%@",pwd);
+    NSLog(@"%@",pwd);
     return pwd;
 }
 
 //获取验证码
 -(NSString *) _verifyCode:(NSString *) aUserName{
+    NSHTTPCookieStorage *cookieJar=[NSHTTPCookieStorage sharedHTTPCookieStorage];
+    [cookieJar setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
     NSString *currentTime=[self _currentTimeString];
     //NSLog(@"%@",currentTime);
     NSString *checkUrlString=[NSString stringWithFormat:@"http://login.xunlei.com/check?u=%@&cachetime=%@",aUserName,currentTime];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:checkUrlString]
-                                             cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
-                                         timeoutInterval:3];
     
-    [NSURLConnection sendSynchronousRequest:request
-                          returningResponse:nil
-                                      error:nil];
+    ASIHTTPRequest *request=[ASIHTTPRequest requestWithURL:[NSURL URLWithString:checkUrlString]];
+    request.useCookiePersistence=YES;
+    [request startSynchronous];
+    //把response中的Cookie添加到CookieStorage
+    [self _addResponseCookietoCookieStorage:[request responseCookies]];
+    
     NSString *vCode;
     vCode=[self cookieValueWithName:@"check_result"];
     //判断是否取得合法VerifyCode
     NSRange range;
     range=[vCode rangeOfString:@":"];
     if(range.location==NSNotFound){
-//        NSLog(@"Maybe something wrong when get verifyCode");
+        NSLog(@"Maybe something wrong when get verifyCode");
         return 0;
     }else {
         vCode=[[vCode componentsSeparatedByString:@":"] objectAtIndex:1];
-//        NSLog(@"%@",vCode);
+        NSLog(@"%@",vCode);
         
     }
     return vCode;
@@ -182,9 +187,13 @@ typedef enum {
     NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     NSString *value;
     for(NSHTTPCookie *cookie in [cookieJar cookies]){
-        if( [cookie.domain hasSuffix:@".xunlei.com"] && [cookie.name compare:aName]==NSOrderedSame){
+        //        NSLog(@"%@",cookie);
+        if([aName isEqualToString:@"gdriveid"] && [cookie.domain hasSuffix:@".xunlei.com"] && [cookie.name compare:aName]==NSOrderedSame){
             value=cookie.value;
-//            NSLog(@"%@:%@",aName,value);
+        }
+        if([cookie.name compare:aName]==NSOrderedSame){
+            value=cookie.value;
+            //            NSLog(@"%@:%@",aName,value);
         }
     }
     return value;
@@ -193,11 +202,12 @@ typedef enum {
 //设置Cookies
 -(NSHTTPCookie *) setCookieWithKey:(NSString *) key Value:(NSString *) value{
     //创建一个cookie
-    NSDictionary *properties = [[NSMutableDictionary alloc] init];
-    [properties setValue:value forKey:NSHTTPCookieValue];
-    [properties setValue:key forKey:NSHTTPCookieName];
-    [properties setValue:@".vip.xunlei.com" forKey:NSHTTPCookieDomain];
-    [properties setValue:@"/" forKey:NSHTTPCookiePath];
+    NSMutableDictionary *properties = [NSMutableDictionary dictionary];
+    [properties setObject:value forKey:NSHTTPCookieValue];
+    [properties setObject:key forKey:NSHTTPCookieName];
+    [properties setObject:@".vip.xunlei.com" forKey:NSHTTPCookieDomain];
+    [properties setObject:@"/" forKey:NSHTTPCookiePath];
+    [properties setObject:[[NSDate date] dateByAddingTimeInterval:2629743] forKey:NSHTTPCookieExpires];
     //这里是关键，不要写成@"FALSE",而是应该直接写成TRUE 或者 FALSE，否则会默认为TRUE
     [properties setValue:FALSE forKey:NSHTTPCookieSecure];
     NSHTTPCookie *cookie = [[NSHTTPCookie alloc] initWithProperties:properties];
@@ -305,7 +315,7 @@ typedef enum {
         default:
             break;
     }
-//    NSLog(@"%@",url);
+    NSLog(@"%@",url);
     return [self _tasksWithURL:url retIfHasNextPage:hasNextPage listType:listType];
 }
 -(NSMutableArray *) _readAllTasksWithStat:(TaskListType) listType{
@@ -340,7 +350,7 @@ typedef enum {
     return result;
 }
 -(NSMutableArray *) _tasksWithURL:(NSURL *) taskURL retIfHasNextPage:(BOOL *) hasNextPageBool listType:(TaskListType) listtype{
-     NSString *siteData;
+    NSString *siteData;
     //初始化返回Array
     NSMutableArray *elements=[[NSMutableArray alloc] initWithCapacity:0];
     //设置lx_nf_all Cookie
@@ -365,7 +375,7 @@ typedef enum {
         [request startSynchronous];
         siteData=[request responseString];
     }
-//    NSLog(@"data:%@",siteData);
+    //    NSLog(@"data:%@",siteData);
     //当得到返回数据且得到真实可用的列表信息（不是502等错误页面）时进行下一步
     NSString *gdriveid=[ParseElements GDriveID:siteData];
     if (siteData&&(gdriveid.length>0)) {
@@ -375,7 +385,7 @@ typedef enum {
          *===============
          *Parse Html
          *===============
-        */
+         */
         //检查是否还有下一页
         if(hasNextPageBool){
             *hasNextPageBool=[self _hasNextPage:siteData];
@@ -393,7 +403,7 @@ typedef enum {
             //初始化XunleiItemInfo
             XunleiItemInfo *info=[XunleiItemInfo new];
             NSString *taskContent=[tmp objectAtIndex:0];
-//            NSLog(@"content:%@",taskContent);
+            //            NSLog(@"content:%@",taskContent);
             NSMutableDictionary *taskInfoDic=[ParseElements taskInfo:taskContent];
             NSString* taskLoadingProcess=[ParseElements taskLoadProcess:taskContent];
             NSString* taskRetainDays=[ParseElements taskRetainDays:taskContent];
@@ -606,7 +616,7 @@ typedef enum {
         
         //findex
         NSString *re2=@"\\(([^\\)]*)\\)";
-        NSString *preString0=[dataGroup2 stringByMatching:re2 capture:1];  
+        NSString *preString0=[dataGroup2 stringByMatching:re2 capture:1];
         NSString *re3=@"'([^']*)'";
         NSArray *preArray0=[preString0 arrayOfCaptureComponentsMatchedByRegex:re3];
         NSMutableArray *preMutableArray=[NSMutableArray arrayWithCapacity:0];
@@ -617,14 +627,14 @@ typedef enum {
         //NSLog(@"%@",findex);
         
         //size index
-        preString0=[dataGroup3 stringByMatching:re2 capture:1];  
+        preString0=[dataGroup3 stringByMatching:re2 capture:1];
         preArray0=[preString0 arrayOfCaptureComponentsMatchedByRegex:re3];
         NSMutableArray *preMutableArray1=[NSMutableArray arrayWithCapacity:0];
         for(NSArray *a in preArray0){
             [preMutableArray1 addObject:[a objectAtIndex:1]];
         }
         sindex=[preMutableArray1 componentsJoinedByString:@"_"];
-        //NSLog(@"%@",sindex); 
+        //NSLog(@"%@",sindex);
         
         //提交任务
         NSURL *commitURL = [NSURL URLWithString:@"http://dynamic.cloud.vip.xunlei.com/interface/bt_task_commit"];
@@ -694,7 +704,7 @@ typedef enum {
             d=@"";
         }
         [newData addObject:d];
-//        NSLog(@"%@",d);
+        NSLog(@"%@",d);
     }
     if(8==data.count){
         cid=[newData objectAtIndex:0];
@@ -735,7 +745,7 @@ typedef enum {
     NSString *commitString=[NSString stringWithFormat:@"http://dynamic.cloud.vip.xunlei.com/interface/task_commit?callback=ret_task&uid=%@&cid=%@&gcid=%@&size=%@&goldbean=%@&silverbean=%@&t=%@&url=%@&type=%@&o_page=task&o_taskid=0",userid,cid,gcid,size,goldbeen,silverbeen,newFilename,enUrl,taskType];
     //NSLog(@"%@",commitString);
     NSURL *commitURL=[NSURL URLWithString:commitString];
-//    NSLog(@"%@",commitURL);
+    NSLog(@"%@",commitURL);
     ASIHTTPRequest *commitRequest=[ASIHTTPRequest requestWithURL:commitURL];
     [commitRequest startSynchronous];
     return [commitRequest responseString];
@@ -768,11 +778,11 @@ typedef enum {
     NSMutableString *idString=[NSMutableString string];
     for(id i in ids){
         if([i isKindOfClass:[XunleiItemInfo class]]){
-           [idString appendString:[(XunleiItemInfo*)i taskid]];
+            [idString appendString:[(XunleiItemInfo*)i taskid]];
         }else if([i isKindOfClass:[NSString class]]){
             [idString appendString:i];
         }else{
-//            NSLog(@"Warning!!deleteTasksByArray:UnKnown Type!");
+            NSLog(@"Warning!!deleteTasksByArray:UnKnown Type!");
             //[idString appendString:i];
         }
         [idString appendString:@","];
@@ -780,7 +790,7 @@ typedef enum {
     NSString *encodeIDString=[URlEncode encodeToPercentEscapeString:idString];
     NSString *tmp=[URlEncode encodeToPercentEscapeString:@","];
     NSString *urlString=[NSString stringWithFormat:@"http://dynamic.cloud.vip.xunlei.com/interface/task_delete?type=2&taskids=%@&old_idlist=&databases=0%@&old_databaselist=&",encodeIDString,tmp];
-//    NSLog(@"%@",urlString);
+    NSLog(@"%@",urlString);
     NSURL *url=[NSURL URLWithString:urlString];
     ASIHTTPRequest *request=[ASIHTTPRequest requestWithURL:url];
     [request startSynchronous];
@@ -829,7 +839,7 @@ typedef enum {
     for(XunleiItemInfo* info in infos){
         NSString* callbackString=[NSString stringWithFormat:@"jsonp%@",[self _currentTimeString]];
         NSURL *requestURL=[NSURL URLWithString:[NSString stringWithFormat:@"http://dynamic.cloud.vip.xunlei.com/interface/redownload?callback=%@",callbackString]];
-    
+        
         ASIFormDataRequest* commitRequest = [ASIFormDataRequest requestWithURL:requestURL];
         [commitRequest setPostValue:info.taskid forKey:@"id[]"];
         [commitRequest setPostValue:info.dcid forKey:@"cid[]"];
@@ -885,7 +895,6 @@ typedef enum {
     [request startSynchronous];
     NSString *response=[request responseString];
     if(response){
-//        NSLog(response);
         NSDictionary *resJson=[response objectFromJSONString];
         if([[resJson objectForKey:@"result"] intValue]==0){
             returnResult=YES;
@@ -916,6 +925,17 @@ typedef enum {
 }
 
 #pragma mark - Other Useful Methods
+-(void) _addResponseCookietoCookieStorage:(NSArray*) cookieArray{
+    //在iOS下还没有问题，但是在Mac下，如果收到的Cookie没有ExpireDate那么就不会存储到CookieStorage中，会造成获取错误
+    //目前为了不影响原有的带有ExpireDate的Cookie，只是在登陆上的几个跳转加了ExpireDate
+    //其实这么做迅雷没有什么问题，本来那几个登陆的关键值就是Non-Session的，反而是Mac OS蛋疼了
+    //参考连接：http://stackoverflow.com/questions/11570737/shared-instance-of-nshttpcookiestorage-does-not-persist-cookies
+    //WTF!!!
+    for(NSHTTPCookie* i in cookieArray ){
+        [self setCookieWithKey:i.name Value:i.value];
+    }
+}
+
 -(XunleiItemInfo *) getTaskWithTaskID:(NSString*) aTaskID{
     XunleiItemInfo *r=nil;
     NSMutableArray *array=[self _readAllTasksWithStat:TLTAll];
