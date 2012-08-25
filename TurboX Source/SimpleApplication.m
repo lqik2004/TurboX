@@ -149,7 +149,7 @@ bool isCheckLoginInfo=NO;
     NSString* url=[[NSUserDefaults standardUserDefaults] objectForKey:ORIGINALURL];
     HYXunleiLixianAPI *TondarAPI=[HYXunleiLixianAPI new];
     //Add
-    if([url hasPrefix:@"megnet"]||[url hasPrefix:@"Megnet"]){
+    if([url hasPrefix:@"magnet"]||[url hasPrefix:@"Magnet"]){
         [TondarAPI addMegnetTask:url];
     }else{
         [TondarAPI addNormalTask:url];

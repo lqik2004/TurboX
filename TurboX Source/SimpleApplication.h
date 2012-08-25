@@ -68,4 +68,6 @@
 @property (nonatomic,copy) NSString *originalURL;
 @property (nonatomic,readonly) NSString* xunleiURL;
 
+
+
 @end
