@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
+
+<!--
+
+     File: SimpleScriptingProperties.sdef
+ Abstract: Starting sdef for a scriptable application.
+  Version: 1.2
+ 
+ Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
+ Inc. ("Apple") in consideration of your agreement to the following
+ terms, and your use, installation, modification or redistribution of
+ this Apple software constitutes acceptance of these terms.  If you do
+ not agree with these terms, please do not use, install, modify or
+ redistribute this Apple software.
+ 
+ In consideration of your agreement to abide by the following terms, and
+ subject to these terms, Apple grants you a personal, non-exclusive
+ license, under Apple's copyrights in this original Apple software (the
+ "Apple Software"), to use, reproduce, modify and redistribute the Apple
+ Software, with or without modifications, in source and/or binary forms;
+ provided that if you redistribute the Apple Software in its entirety and
+ without modifications, you must retain this notice and the following
+ text and disclaimers in all such redistributions of the Apple Software.
+ Neither the name, trademarks, service marks or logos of Apple Inc. may
+ be used to endorse or promote products derived from the Apple Software
+ without specific prior written permission from Apple.  Except as
+ expressly stated in this notice, no other rights or licenses, express or
+ implied, are granted by Apple herein, including but not limited to any
+ patent rights that may be infringed by your derivative works or by other
+ works in which the Apple Software may be incorporated.
+ 
+ The Apple Software is provided by Apple on an "AS IS" basis.  APPLE
+ MAKES NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION
+ THE IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY AND FITNESS
+ FOR A PARTICULAR PURPOSE, REGARDING THE APPLE SOFTWARE OR ITS USE AND
+ OPERATION ALONE OR IN COMBINATION WITH YOUR PRODUCTS.
+ 
+ IN NO EVENT SHALL APPLE BE LIABLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL
+ OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) ARISING IN ANY WAY OUT OF THE USE, REPRODUCTION,
+ MODIFICATION AND/OR DISTRIBUTION OF THE APPLE SOFTWARE, HOWEVER CAUSED
+ AND WHETHER UNDER THEORY OF CONTRACT, TORT (INCLUDING NEGLIGENCE),
+ STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+ Copyright (C) 2011 Apple Inc. All Rights Reserved.
+ 
+
+-->
+
+	<!-- declare the namespace for using XInclude so we can include the standard suite -->
+<dictionary xmlns:xi="http://www.w3.org/2003/XInclude">
+
+
+		<!-- use XInclude to include the standard suite -->
+	<xi:include href="file:///System/Library/ScriptingDefinitions/CocoaStandard.sdef" xpointer="xpointer(/dictionary/suite)"/>
+    
+    
+    <!-- specific suite(s) for the application follow... -->
+	<suite name="TurboX Suite" code="TbXs"
+		description="TurboX Application specific scripting facilities.">
+		
+		<class name="TurboXApplication" code="capp"
+            description="TurboX Application." inherits="application">
+			<cocoa class="NSApplication"/>
+            
+            <element type="normaltaskinfo">
+				<cocoa key="normaltasklist"/>
+            </element>
+            <element type="bttaskinfo">
+                <cocoa key="bttasklist"/>
+            </element>
+            
+            <property name="gdriveid" code="gdid" description="The most important Cookie" type="text" access="r">
+                <cocoa key="gdriveid"/>
+            </property>
+            <property name="originalurl" code="ourl" description="Original URL" type="text" access="rw">
+                <cocoa key="originalURL"/>
+            </property>
+            <property name="xunleiurl" code="xurl" description="Xunlei URL" type="text" access="r">
+                <cocoa key="xunleiURL"/>
+            </property>
+                
+        </class>
+            <class name="bttaskinfo" code="BTTL"
+                description="Task Info List in BT Folder">
+                    
+                <cocoa class="XunleiItemInfo"/>
+                    
+                <!-- properties -->
+                    
+                <property name="taskid" code="TKID" type="text" access="r"
+                        description="item ID"/>
+                    
+                <property name="name" code="pnam" type="text" access="r"
+                description="the item's name"/>
+                    
+                <property name="size" code="tsz " type="text" access="r"
+			        description="item size(KB/B/...)"/>
+					
+                <property name="readableSize" code="rdsz" type="text" access="r"
+			        description="readable size"/>
+					
+                <property name="downloadPercent" code="dpct" type="text" access="r"
+			        description="downloadPercent"/>
+                
+                <property name="retainDays" code="rtnd" type="text" access="r"
+                description="retainDays"/>
+                
+                <property name="addDate" code="adat" type="text" access="r"
+                description="add date"/>
+                    
+                <property name="downloadURL" code="durl" type="text" access="r"
+                description="download url"/>
+                
+                <property name="originalURL" code="ourl" type="text" access="r"
+                description="original URL"/>
+                
+                <property name="isBT" code="isbt" type="text" access="r"
+                description="BT is 0,else is 1,and its a text format becareful"/>
+                
+                <property name="type" code="type" type="text" access="r"
+                description="item type(movie,pdf,file...)"/>
+                
+                <property name="dcid" code="dcid" type="text" access="r"
+                description="also named bt hash,it's very important to bt task item"/>
+                
+                <property name="status" code="dpct" type="text" access="r"
+                description="sWaiting=0,sDownloadding=1,sComplete=2,sFail=3,sPending=4"/>
+                
+                <property name="ifvod" code="ifvd" type="text" access="r"
+                description="if vod"/>
+                
+            </class>
+                
+                <class name="normaltaskinfo" code="ntif"
+                    description="Task Info List">
+                    
+                    <cocoa class="XunleiItemInfo"/>
+                    
+                    <!-- properties -->
+                    
+                    <property name="taskid" code="ID  " type="text" access="r"
+                        description="item ID"/>
+                    <property name="name" code="pnam" type="text" access="r"
+                    description="the item's name"/>
+                    
+                    <property name="size" code="tsz " type="text" access="r"
+			        description="item size(KB/B/...)"/>
+					
+                    <property name="readableSize" code="rdsz" type="text" access="r"
+			        description="readable size"/>
+					
+                    <property name="downloadPercent" code="dpct" type="text" access="r"
+			        description="downloadPercent"/>
+                    
+                    <property name="retainDays" code="rtnd" type="text" access="r"
+                    description="retainDays"/>
+                    
+                    <property name="addDate" code="adat" type="text" access="r"
+                    description="add date"/>
+                    
+                    <property name="downloadURL" code="durl" type="text" access="r"
+                    description="download url"/>
+                    
+                    <property name="originalURL" code="ourl" type="text" access="r"
+                    description="original URL"/>
+                    
+                    <property name="isBT" code="isbt" type="text" access="r"
+                    description="BT is 0,else is 1,and its a text format becareful"/>
+                    
+                    <property name="type" code="type" type="text" access="r"
+                    description="item type(movie,pdf,file...)"/>
+                    
+                    <property name="dcid" code="dcid" type="text" access="r"
+                    description="also named bt hash,it's very important to bt task item"/>
+                    
+                    <property name="status" code="dpct" type="text" access="r"
+                    description="sWaiting=0,sDownloadding=1,sComplete=2,sFail=3,sPending=4"/>
+                    
+                    <property name="ifvod" code="ifvd" type="text" access="r"
+                    description="if vod"/>
+                    
+                </class>
+		<command name="addOriginalURL" code="AURL" description="add original url return to tasklist">
+			<cocoa class="addOriginalURL"/>
+			
+			<direct-parameter description="OriginalURL">
+				<type type="text"/>
+			</direct-parameter>
+			
+			<result type="text" description="return xunleiURL"/>
+		</command>
+		
+                
+    </suite>
+
+
+</dictionary>

@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		52D3AF790B8E7DF600497DA4 /* TurboX.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 52D3AF780B8E7DF600497DA4 /* TurboX.sdef */; };
-		52FFD7190B8FB0AC006A9151 /* SimpleApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FFD7180B8FB0AC006A9151 /* SimpleApplication.m */; };
+		52FFD7190B8FB0AC006A9151 /* ScritableApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FFD7180B8FB0AC006A9151 /* ScritableApplication.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		A888BC2115E90F5200953B4E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A888BC2015E90F5200953B4E /* SystemConfiguration.framework */; };
@@ -16,6 +15,12 @@
 		A888BC2515E90F6100953B4E /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A888BC2415E90F6100953B4E /* CoreServices.framework */; };
 		A888BC2715E90F6A00953B4E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A888BC2615E90F6A00953B4E /* Cocoa.framework */; };
 		A888BC2915E90F7000953B4E /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A888BC2815E90F7000953B4E /* libicucore.dylib */; };
+		A8C3D7D015EA3D54003531F5 /* addOriginalURL.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C3D7CF15EA3D54003531F5 /* addOriginalURL.m */; };
+		A8C3D7D415EA4CF9003531F5 /* TurboX.sdef in Resources */ = {isa = PBXBuildFile; fileRef = A8C3D7D315EA4CF9003531F5 /* TurboX.sdef */; };
+		A8C3D7DB15EA58B2003531F5 /* Element.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C3D7DA15EA58B2003531F5 /* Element.m */; };
+		A8C3D7DE15EA58DC003531F5 /* SBTTaskItemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C3D7DD15EA58DC003531F5 /* SBTTaskItemInfo.m */; };
+		A8C3D7E115EA681A003531F5 /* Trinket.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C3D7E015EA6819003531F5 /* Trinket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A8C3D7E415EA682B003531F5 /* SimpleCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C3D7E315EA682B003531F5 /* SimpleCommand.m */; };
 		A8F884BB15E7845F00E555A4 /* download.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F884BA15E7845F00E555A4 /* download.m */; };
 		A8F884C615E7894D00E555A4 /* aria2c in Resources */ = {isa = PBXBuildFile; fileRef = A8F884C415E7894D00E555A4 /* aria2c */; };
 		A8F884F315E791B600E555A4 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F884CC15E791B500E555A4 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -45,9 +50,8 @@
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* SimpleScriptingProperties_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleScriptingProperties_Prefix.pch; sourceTree = "<group>"; };
-		52D3AF780B8E7DF600497DA4 /* TurboX.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TurboX.sdef; sourceTree = "<group>"; };
-		52FFD7170B8FB0AC006A9151 /* SimpleApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleApplication.h; sourceTree = "<group>"; };
-		52FFD7180B8FB0AC006A9151 /* SimpleApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleApplication.m; sourceTree = "<group>"; };
+		52FFD7170B8FB0AC006A9151 /* ScritableApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScritableApplication.h; sourceTree = "<group>"; };
+		52FFD7180B8FB0AC006A9151 /* ScritableApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScritableApplication.m; sourceTree = "<group>"; };
 		52FFD71A0B8FB0BF006A9151 /* scriptLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scriptLog.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* TurboX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TurboX.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +60,17 @@
 		A888BC2415E90F6100953B4E /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/CoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		A888BC2615E90F6A00953B4E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		A888BC2815E90F7000953B4E /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/usr/lib/libicucore.dylib; sourceTree = DEVELOPER_DIR; };
+		A8C3D7CE15EA3D54003531F5 /* addOriginalURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addOriginalURL.h; sourceTree = "<group>"; };
+		A8C3D7CF15EA3D54003531F5 /* addOriginalURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addOriginalURL.m; sourceTree = "<group>"; };
+		A8C3D7D315EA4CF9003531F5 /* TurboX.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TurboX.sdef; sourceTree = "<group>"; };
+		A8C3D7D915EA58B2003531F5 /* Element.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Element.h; sourceTree = "<group>"; };
+		A8C3D7DA15EA58B2003531F5 /* Element.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Element.m; sourceTree = "<group>"; };
+		A8C3D7DC15EA58DC003531F5 /* SBTTaskItemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTTaskItemInfo.h; sourceTree = "<group>"; };
+		A8C3D7DD15EA58DC003531F5 /* SBTTaskItemInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTTaskItemInfo.m; sourceTree = "<group>"; };
+		A8C3D7DF15EA6819003531F5 /* Trinket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trinket.h; sourceTree = "<group>"; };
+		A8C3D7E015EA6819003531F5 /* Trinket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trinket.m; sourceTree = "<group>"; };
+		A8C3D7E215EA682B003531F5 /* SimpleCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleCommand.h; sourceTree = "<group>"; };
+		A8C3D7E315EA682B003531F5 /* SimpleCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleCommand.m; sourceTree = "<group>"; };
 		A8F884B915E7845F00E555A4 /* download.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = download.h; sourceTree = "<group>"; };
 		A8F884BA15E7845F00E555A4 /* download.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = download.m; sourceTree = "<group>"; };
 		A8F884C415E7894D00E555A4 /* aria2c */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = aria2c; sourceTree = "<group>"; };
@@ -124,10 +139,20 @@
 			isa = PBXGroup;
 			children = (
 				A8F884C915E791B500E555A4 /* TondarAPI */,
-				52FFD7170B8FB0AC006A9151 /* SimpleApplication.h */,
-				52FFD7180B8FB0AC006A9151 /* SimpleApplication.m */,
+				52FFD7170B8FB0AC006A9151 /* ScritableApplication.h */,
+				52FFD7180B8FB0AC006A9151 /* ScritableApplication.m */,
 				A8F884B915E7845F00E555A4 /* download.h */,
 				A8F884BA15E7845F00E555A4 /* download.m */,
+				A8C3D7CE15EA3D54003531F5 /* addOriginalURL.h */,
+				A8C3D7CF15EA3D54003531F5 /* addOriginalURL.m */,
+				A8C3D7D915EA58B2003531F5 /* Element.h */,
+				A8C3D7DA15EA58B2003531F5 /* Element.m */,
+				A8C3D7DC15EA58DC003531F5 /* SBTTaskItemInfo.h */,
+				A8C3D7DD15EA58DC003531F5 /* SBTTaskItemInfo.m */,
+				A8C3D7DF15EA6819003531F5 /* Trinket.h */,
+				A8C3D7E015EA6819003531F5 /* Trinket.m */,
+				A8C3D7E215EA682B003531F5 /* SimpleCommand.h */,
+				A8C3D7E315EA682B003531F5 /* SimpleCommand.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -169,7 +194,7 @@
 				A8F884C415E7894D00E555A4 /* aria2c */,
 				A8F8850F15E79E1B00E555A4 /* Authenticate.app */,
 				D028A76313E88F0300584530 /* MainMenu.xib */,
-				52D3AF780B8E7DF600497DA4 /* TurboX.sdef */,
+				A8C3D7D315EA4CF9003531F5 /* TurboX.sdef */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 			);
@@ -270,7 +295,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0440;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "TurboX" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -294,11 +319,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
-				52D3AF790B8E7DF600497DA4 /* TurboX.sdef in Resources */,
 				D028A76113E88F0300584530 /* MainMenu.xib in Resources */,
 				A8F884C615E7894D00E555A4 /* aria2c in Resources */,
 				A8F8851015E79E1B00E555A4 /* Authenticate.app in Resources */,
 				A8F8851215E7ADCE00E555A4 /* icon.png in Resources */,
+				A8C3D7D415EA4CF9003531F5 /* TurboX.sdef in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
-				52FFD7190B8FB0AC006A9151 /* SimpleApplication.m in Sources */,
+				52FFD7190B8FB0AC006A9151 /* ScritableApplication.m in Sources */,
 				A8F884BB15E7845F00E555A4 /* download.m in Sources */,
 				A8F884F315E791B600E555A4 /* ASIDataCompressor.m in Sources */,
 				A8F884F415E791B600E555A4 /* ASIDataDecompressor.m in Sources */,
@@ -330,6 +355,11 @@
 				A8F8850215E791B600E555A4 /* RegexKitLite.m in Sources */,
 				A8F8850315E791B600E555A4 /* URlEncode.m in Sources */,
 				A8F8850415E791B600E555A4 /* XunleiItemInfo.m in Sources */,
+				A8C3D7D015EA3D54003531F5 /* addOriginalURL.m in Sources */,
+				A8C3D7DB15EA58B2003531F5 /* Element.m in Sources */,
+				A8C3D7DE15EA58DC003531F5 /* SBTTaskItemInfo.m in Sources */,
+				A8C3D7E115EA681A003531F5 /* Trinket.m in Sources */,
+				A8C3D7E415EA682B003531F5 /* SimpleCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +389,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
@@ -378,6 +409,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = Info.plist;
@@ -396,7 +428,7 @@
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -407,7 +439,7 @@
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				SDKROOT = macosx;
 			};
 			name = Release;

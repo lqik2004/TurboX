@@ -69,7 +69,9 @@
 			the property accessor methods for the properties we define for
 			this AppleScript class. -->
 			<cocoa class="NSApplication"/>
-			
+            
+            <element type="btiteminfo"/>
+            <element type="trinket"/>
 			<!-- properties defined on the main application container -->
             <property name="gdriveid" code="gdid" description="最重要的一个Cookie" type="text" access="r">
                 <cocoa key="gdriveid"/>
@@ -91,9 +93,55 @@
 			<property name="special version" code="SiVs" description="the application version" type="text" access="r">
 				<cocoa key="specialVersion"/>
 			</property>
-            
-		</class>
+            <!-- the trinket class  -->
+            <class name="trinket" code="ScOT"
+                description="A leaf object that does not contain other objects.">
+                
+                <cocoa class="Trinket"/>
+                
+                <!-- properties -->
+                
+                <property name="id" code="ID  " type="text" access="r"
+                    description="The unique identifier.">
+                    <cocoa key="uniqueID"/>
+                </property>
+                
+                <property name="name" code="pnam" type="text" access="rw"
+                description="the item's name"/>
+                
+                <property name="shiny" code="TrSh" type="boolean" access="rw"
+                description="shiny side up!"/>
+                
+                <property name="weight" code="ScWt" type="real" access="rw"
+                description="the item's weight"/>
+                
+                <property name="description" code="desc" type="text" access="rw"
+                description="a description of the item"/>
+                
+            </class>
 
+		</class>
+        <class name="btiteminfo" code="btin" description="bt item info">
+            <cocoa class="SBTTaskItemInfo"/>
+            <property name="taskname" code="TKNM" type="text" access="r" description="bt itemk id"/>
+            <property name="taskid" code="TKID" type="text" access="r" description="bt itemk id"/>
+            <property name="ename" code="ekID" type="text" access="r" description="ename"/>
+        </class>
+        <!--
+        <command name="addURL" code="aURL" description="add url">
+			<cocoa class="addOriginalURL"/>
+			
+			<direct-parameter description="url">
+				<type type="text"/>
+			</direct-parameter>
+        
+			<result type="text" description="return xunlei url"/>
+		</command>
+         -->
+        <command name="do simple command" code="SVrbSimp" description="run a simple command with no parameters">
+			<cocoa class="SimpleCommand"/>
+			<result type="integer" description="returns the number seven"/>
+		</command>
 	</suite>
 
 
