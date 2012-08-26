@@ -155,12 +155,23 @@ bool isCheckLoginInfo=NO;
         [TondarAPI addNormalTask:url];
     }
     //获取全部已经完成任务
+    NSArray* tasklist=[TondarAPI readCompleteTasksWithPage:1];
+    XunleiItemInfo *task=[tasklist objectAtIndex:0];
+    //BT
+    if([task.isBT isEqualToString:@"0"]){
+        NSArray* btlist=[TondarAPI readSingleBTTaskListWithTaskID:task.taskid hashID:task.dcid andPageNumber:1];
+        xunlei=[(XunleiItemInfo*)[btlist objectAtIndex:0] downloadURL];
+    }else{
+        xunlei=task.downloadURL;
+    }
+    /*
     for (XunleiItemInfo *task in [TondarAPI readCompleteTasksWithPage:1]) {
         if([task.originalURL isEqualToString:url]){
             xunlei=task.downloadURL;
             break;
         }
     }
+     */
     return xunlei;
 }
 @end
