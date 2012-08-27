@@ -37,6 +37,7 @@ TurboX 使用起来非常简单
 ![](https://img.skitch.com/20120824-kuqm9rss9us87673f5snighe3p.jpg)  
 *********************
 ###更新日志
+* v1.3.7 增加了对10.8 Notification Center的支持&&更改了下载文件夹中文件的算法（只下载最大）
 * v1.3.5 增加了对Aria2c支持，如果没有检测到任何支持的下载客户端则启用Aria2c
 * v1.3.1 改写了AppleScript代码，检验Growl防止用户没有打开Growl而意外退出
 * v1.3 增加了对Growl支持，给以适当提示。同时增强了连接可靠性

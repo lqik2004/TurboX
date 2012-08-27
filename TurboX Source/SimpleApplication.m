@@ -173,7 +173,16 @@ bool isCheckLoginInfo=NO;
             //BT
             if([task.isBT isEqualToString:@"0"]){
                 NSArray* btlist=[TondarAPI readSingleBTTaskListWithTaskID:task.taskid hashID:task.dcid andPageNumber:1];
-                returnURL=[(XunleiItemInfo*)[btlist objectAtIndex:0] downloadURL];
+                long maxsize=0;
+                XunleiItemInfo* maxSizeItem=nil;
+                for(XunleiItemInfo* bttask in btlist){
+                    long currentSize=[bttask.size longLongValue];
+                    if(currentSize>maxsize){
+                        maxsize=currentSize;
+                        maxSizeItem=bttask;
+                    }
+                }
+                returnURL=[maxSizeItem downloadURL];
             }else{
                 returnURL=task.downloadURL;
             }
