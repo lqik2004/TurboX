@@ -1,6 +1,6 @@
 #TurboX
 ******************
-TurboX是一款下载加速软件，它采用了我的[Tondar API](https://github.com/lqik2004/xunlei-lixian-api-PureObjc)，通过迅雷离线作为中转实现高速下载。 
+TurboX是一款下载加速软件，它采用了我的[Tondar API](https://github.com/lqik2004/xunlei-lixian-api-PureObjc)，通过迅雷离线作为中转实现高速下载。   
 **TurboX需要您有迅雷离线账号**
 **TurboX需要配合Alfred达到最优效果**  
 **TurboX[下载链接](https://github.com/lqik2004/TurboX/raw/master/TurboX.alfredextension)**  
@@ -8,15 +8,16 @@ TurboX是一款下载加速软件，它采用了我的[Tondar API](https://githu
 *******************
 ###目前支持的下载客户端（不断更新）
 * SpeedDownload  
+* Aria2c 
 
-我正在陆续加入更多的客户端支持，同时也打算如果没有找到下载客户端就使用默认的命令行下载，我正在做这件事情，估计会很快完成  
+我正在陆续加入更多的客户端支持，目前如果在您的Mac上没有找到支持的下载客户端就使用默认的Aria2c下载  
 **另外，我需要调查一下你在用什么样的下载客户端，我会把用的比较多的尝试着做一下支持**  
 **如果你是TurboX的用户，你可以通过下面的联系方式告诉我你需要的客户端支持，这很重要**
 ###特性
 * 一键下载
 * 解决死链
 * 支持多种协议下载（http/ftp/ed2k/megnet/thunder/qq/flashget）
-* 多线（国内国外资源，均能实现高速下载）  
+* 迅雷快传连接支持
 * 自动更新  
 **注：一些冷门资源可能无法使用TurboX，正在着手改进**
 
@@ -36,6 +37,7 @@ TurboX 使用起来非常简单
 ![](https://img.skitch.com/20120824-kuqm9rss9us87673f5snighe3p.jpg)  
 *********************
 ###更新日志
+* v1.3.5 增加了对Aria2c支持，如果没有检测到任何支持的下载客户端则启用Aria2c
 * v1.3.1 改写了AppleScript代码，检验Growl防止用户没有打开Growl而意外退出
 * v1.3 增加了对Growl支持，给以适当提示。同时增强了连接可靠性
 * v1.2 几乎重写了代码，采用了不同的构造方式，更稳定更方便
