@@ -54,6 +54,7 @@
 #import "download.h"
 #import "HYXunleiLixianAPI.h"
 #import "XunleiItemInfo.h"
+#import "Kuai.h"
 
 #define LOGIN_USERNAME @"username"
 #define LOGIN_PASSWORD @"password"
@@ -147,32 +148,39 @@ bool isCheckLoginInfo=NO;
 -(NSString*) xunleiURL{
     NSString* xunlei=nil;
     NSString* url=[[NSUserDefaults standardUserDefaults] objectForKey:ORIGINALURL];
+
+    if([url hasPrefix:@"http://kuai.xunlei.com"]||[url hasPrefix:@"kuai.xunlei.com"]){
+        Kuai* k=[Kuai new];
+        NSArray* kuaiitemArray=[k kuaiItemInfoArrayByKuaiURL:[NSURL URLWithString:url]];
+        xunlei=[self addUrlToLixian:[(KuaiItemInfo*)[kuaiitemArray objectAtIndex:0] urlString]];
+    }else{
+        xunlei=[self addUrlToLixian:url];
+    }
+    return xunlei;
+}
+-(NSString*) addUrlToLixian:(NSString*) url{
+    NSString* returnURL=nil;
     HYXunleiLixianAPI *TondarAPI=[HYXunleiLixianAPI new];
     //Add
+    NSString* taskdcid=nil;
     if([url hasPrefix:@"magnet"]||[url hasPrefix:@"Magnet"]){
-        [TondarAPI addMegnetTask:url];
+        taskdcid=[TondarAPI addMegnetTask:url];
     }else{
-        [TondarAPI addNormalTask:url];
+        taskdcid=[TondarAPI addNormalTask:url];
     }
-    //获取全部已经完成任务
-    NSArray* tasklist=[TondarAPI readCompleteTasksWithPage:1];
-    XunleiItemInfo *task=[tasklist objectAtIndex:0];
-    //BT
-    if([task.isBT isEqualToString:@"0"]){
-        NSArray* btlist=[TondarAPI readSingleBTTaskListWithTaskID:task.taskid hashID:task.dcid andPageNumber:1];
-        xunlei=[(XunleiItemInfo*)[btlist objectAtIndex:0] downloadURL];
-    }else{
-        xunlei=task.downloadURL;
-    }
-    /*
     for (XunleiItemInfo *task in [TondarAPI readCompleteTasksWithPage:1]) {
-        if([task.originalURL isEqualToString:url]){
-            xunlei=task.downloadURL;
+        if([task.dcid isEqualToString:taskdcid]){
+            //BT
+            if([task.isBT isEqualToString:@"0"]){
+                NSArray* btlist=[TondarAPI readSingleBTTaskListWithTaskID:task.taskid hashID:task.dcid andPageNumber:1];
+                returnURL=[(XunleiItemInfo*)[btlist objectAtIndex:0] downloadURL];
+            }else{
+                returnURL=task.downloadURL;
+            }
             break;
         }
     }
-     */
-    return xunlei;
+    return returnURL;
 }
 @end
 

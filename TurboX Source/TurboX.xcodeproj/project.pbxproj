@@ -17,7 +17,6 @@
 		A888BC2715E90F6A00953B4E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A888BC2615E90F6A00953B4E /* Cocoa.framework */; };
 		A888BC2915E90F7000953B4E /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A888BC2815E90F7000953B4E /* libicucore.dylib */; };
 		A8F884BB15E7845F00E555A4 /* download.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F884BA15E7845F00E555A4 /* download.m */; };
-		A8F884C615E7894D00E555A4 /* aria2c in Resources */ = {isa = PBXBuildFile; fileRef = A8F884C415E7894D00E555A4 /* aria2c */; };
 		A8F884F315E791B600E555A4 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F884CC15E791B500E555A4 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A8F884F415E791B600E555A4 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F884CE15E791B500E555A4 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A8F884F515E791B600E555A4 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F884D015E791B500E555A4 /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -58,7 +57,6 @@
 		A888BC2815E90F7000953B4E /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/usr/lib/libicucore.dylib; sourceTree = DEVELOPER_DIR; };
 		A8F884B915E7845F00E555A4 /* download.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = download.h; sourceTree = "<group>"; };
 		A8F884BA15E7845F00E555A4 /* download.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = download.m; sourceTree = "<group>"; };
-		A8F884C415E7894D00E555A4 /* aria2c */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = aria2c; sourceTree = "<group>"; };
 		A8F884CA15E791B500E555A4 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
 		A8F884CB15E791B500E555A4 /* ASIDataCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataCompressor.h; sourceTree = "<group>"; };
 		A8F884CC15E791B500E555A4 /* ASIDataCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataCompressor.m; sourceTree = "<group>"; };
@@ -166,7 +164,6 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A8F884C415E7894D00E555A4 /* aria2c */,
 				A8F8850F15E79E1B00E555A4 /* Authenticate.app */,
 				D028A76313E88F0300584530 /* MainMenu.xib */,
 				52D3AF780B8E7DF600497DA4 /* TurboX.sdef */,
@@ -296,7 +293,6 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				52D3AF790B8E7DF600497DA4 /* TurboX.sdef in Resources */,
 				D028A76113E88F0300584530 /* MainMenu.xib in Resources */,
-				A8F884C615E7894D00E555A4 /* aria2c in Resources */,
 				A8F8851015E79E1B00E555A4 /* Authenticate.app in Resources */,
 				A8F8851215E7ADCE00E555A4 /* icon.png in Resources */,
 			);
