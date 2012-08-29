@@ -66,8 +66,9 @@
 
 
 @property (nonatomic,copy) NSString *originalURL;
+@property (nonatomic,copy) NSString *thenasip;
 @property (nonatomic,readonly) NSString* xunleiURL;
-
+@property (nonatomic,readonly) NSString* sendtonas;
 
 
 @end

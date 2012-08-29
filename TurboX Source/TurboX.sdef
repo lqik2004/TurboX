@@ -80,6 +80,12 @@
             <property name="xunleiurl" code="xurl" description="迅雷URL" type="text" access="r">
                 <cocoa key="xunleiURL"/>
             </property>
+            <property name="sendtonas" code="stna" description="发送到NAS" type="text" access="r">
+                <cocoa key="sendtonas"/>
+            </property>
+            <property name="setNASIP" code="snip" description="NAS地址" type="text" access="rw">
+                <cocoa key="thenasip"/>
+            </property>
 			
 			<!-- the 'special version' property.
 				The term 'version' already has a four letter code defined for

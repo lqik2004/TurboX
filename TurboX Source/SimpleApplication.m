@@ -55,12 +55,15 @@
 #import "HYXunleiLixianAPI.h"
 #import "XunleiItemInfo.h"
 #import "Kuai.h"
+#import "ASIHTTPRequest.h"
 
 #define LOGIN_USERNAME @"username"
 #define LOGIN_PASSWORD @"password"
 #define NULLSTRING @"(null)"
 #define ISUSERINFOCHECK @"isUserInfoChecked"
 #define ORIGINALURL @"originalURL"
+#define COOKIE @"cookie"
+#define NASIP @"nasip"
 
 @implementation NSApplication (scriptable)
 
@@ -76,6 +79,7 @@ bool isCheckLoginInfo=NO;
             gid=[TondarAPI GDriveID];
         }
     }
+    [[NSUserDefaults standardUserDefaults] setObject:gid forKey:COOKIE];
     return gid;
 }
 
@@ -190,6 +194,74 @@ bool isCheckLoginInfo=NO;
         }
     }
     return returnURL;
+}
+-(NSString*) addUrlToLixianToNAS:(NSString*) url{
+    NSString* returnURL=nil;
+    HYXunleiLixianAPI *TondarAPI=[HYXunleiLixianAPI new];
+    //Add
+    NSString* taskdcid=nil;
+    if([url hasPrefix:@"magnet"]||[url hasPrefix:@"Magnet"]){
+        taskdcid=[TondarAPI addMegnetTask:url];
+    }else{
+        taskdcid=[TondarAPI addNormalTask:url];
+    }
+    XunleiItemInfo* resultItemInfo=[XunleiItemInfo new];
+    for (XunleiItemInfo *task in [TondarAPI readCompleteTasksWithPage:1]) {
+        if([task.dcid isEqualToString:taskdcid]){
+            //BT
+            if([task.isBT isEqualToString:@"0"]){
+                NSArray* btlist=[TondarAPI readSingleBTTaskListWithTaskID:task.taskid hashID:task.dcid andPageNumber:1];
+                long maxsize=0;
+                XunleiItemInfo* maxSizeItem=nil;
+                for(XunleiItemInfo* bttask in btlist){
+                    long currentSize=[bttask.size longLongValue];
+                    if(currentSize>maxsize){
+                        maxsize=currentSize;
+                        maxSizeItem=bttask;
+                    }
+                }
+                resultItemInfo=maxSizeItem;
+            }else{
+                resultItemInfo=task;
+            }
+            break;
+        }
+    }
+    returnURL=resultItemInfo.downloadURL;
+    NSString* gdriveid=[[NSUserDefaults standardUserDefaults] objectForKey:COOKIE];
+    NSString* cookie=[NSString stringWithFormat:@"\"Cookie: gdriveid=%@;\"",gdriveid];
+    NSString* durl=returnURL;
+    NSString* name=resultItemInfo.name;
+    NSString* nasip=[[NSUserDefaults standardUserDefaults] objectForKey:NASIP];
+    NSString* json=[NSString stringWithFormat:@"{\"jsonrpc\":\"2.0\", \"id\":\"qwer\",\"method\":\"aria2.addUri\",\"params\":[[\"%@\"],{\"header\":%@,\"out\":\"%@\"}]}",durl,cookie,name];
+    ASIHTTPRequest *request=[ASIHTTPRequest requestWithURL:[NSURL URLWithString:nasip]];
+    [request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
+    [request startSynchronous];
+    //不成功
+    if([request responseStatusCode]!=200){
+        returnURL=nil;
+    }
+    return returnURL;
+}
+-(NSString*) sendtonas{
+    NSString* xunlei=nil;
+    NSString* url=[[NSUserDefaults standardUserDefaults] objectForKey:ORIGINALURL];
+    
+    if([url hasPrefix:@"http://kuai.xunlei.com"]||[url hasPrefix:@"kuai.xunlei.com"]){
+        Kuai* k=[Kuai new];
+        NSArray* kuaiitemArray=[k kuaiItemInfoArrayByKuaiURL:[NSURL URLWithString:url]];
+        xunlei=[self addUrlToLixianToNAS:[(KuaiItemInfo*)[kuaiitemArray objectAtIndex:0] urlString]];
+    }else{
+        xunlei=[self addUrlToLixianToNAS:url];
+    }
+    return xunlei;
+}
+
+-(NSString*) thenasip{
+   return  [[NSUserDefaults standardUserDefaults] objectForKey:NASIP];
+}
+-(void) setThenasip:(NSString *)nasip{
+    [[NSUserDefaults standardUserDefaults] setObject:nasip forKey:NASIP];
 }
 @end
 
