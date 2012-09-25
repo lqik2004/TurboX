@@ -5,7 +5,7 @@ TurboX是一款下载加速软件，它采用了我的[Tondar API](https://githu
 **TurboX需要配合Alfred达到最优效果**  
 **TurboX[下载链接](https://github.com/lqik2004/TurboX/raw/master/TurboX.alfredextension)**  
 **TurboX-NAS[下载链接](https://github.com/lqik2004/TurboX/raw/master/TurboX-NAS.alfredextension)**  
-**演示视频[地址](http://d.pr/v/qxhJ)**
+**演示视频[地址](http://d.pr/v/YdYj)**
 *******************
 ###目前支持的下载客户端（不断更新）
 * SpeedDownload  
