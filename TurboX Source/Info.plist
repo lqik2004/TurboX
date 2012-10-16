@@ -28,6 +28,39 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NSServices</key>
+	<array>
+		<dict>
+			<key>NSTimeout</key>
+			<string>1</string>
+			<key>NSRequiredContext</key>
+			<dict/>
+			<key>NSMenuItem</key>
+			<dict>
+				<key>default</key>
+				<string>迅雷离线到本地</string>
+			</dict>
+			<key>NSMessage</key>
+			<string>xunleiDownload</string>
+			<key>NSPortName</key>
+			<string>TurboX</string>
+		</dict>
+		<dict>
+			<key>NSTimeout</key>
+			<string>1</string>
+			<key>NSRequiredContext</key>
+			<dict/>
+			<key>NSMenuItem</key>
+			<dict>
+				<key>default</key>
+				<string>迅雷离线到NAS</string>
+			</dict>
+			<key>NSMessage</key>
+			<string>xunleiToNAS</string>
+			<key>NSPortName</key>
+			<string>TurboX</string>
+		</dict>
+	</array>
 	<key>OSAScriptingDefinition</key>
 	<string>TurboX.sdef</string>
 </dict>

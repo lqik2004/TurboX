@@ -51,7 +51,6 @@
 
 #import "SimpleApplication.h"
 #import "scriptLog.h"
-#import "download.h"
 #import "HYXunleiLixianAPI.h"
 #import "XunleiItemInfo.h"
 #import "Kuai.h"

@@ -46,32 +46,18 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import "Services.h"
+#import "Download.h"
 
 int main(int argc, char *argv[])
 {
-    /*
-    NSTask *task;
-    task = [[NSTask alloc] init];
-    NSString *resourcesPath = [[NSBundle mainBundle] resourcePath];
-    NSString *exePath = [NSString stringWithFormat:@"%@/Authenticate.app/Contents/MacOS/Authenticate",resourcesPath];
-    [task setLaunchPath:exePath];
-
-        NSArray *arguments=nil;
-            arguments=@[@"-get",@"username"];
-        [task setArguments:arguments];
-    NSPipe *pipe;
-    pipe = [NSPipe pipe];
-    [task setStandardOutput: pipe];
+    //Download *download=[Download new];
+//    [download downloadToNas:@"ed2k://%7Cfile%7C特伦鲍姆一家.The.Royal.Tenenbaums.2001.BD-RMVB-人人影视原创翻译中英双语字幕.rmvb%7C517775905%7C00842f399271776b35ac6c0ee8d15962%7Ch=tdmjhekewu7zn7dvpyqizjo4ewgogpnt%7C"];
     
-    NSFileHandle *file;
-    file = [pipe fileHandleForReading];
+    Services *serviceProvider = [[Services alloc] init];
     
-    [task launch];
-    
-    NSData *data;
-    data = [file readDataToEndOfFile];
-    
-    NSLog(@"%@",[[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding]);
-    */
+    NSRegisterServicesProvider(serviceProvider, @"TurboX");
     return NSApplicationMain(argc,  (const char **) argv);
+    
+
 }

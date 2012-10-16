@@ -11,12 +11,14 @@
 		52FFD7190B8FB0AC006A9151 /* SimpleApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FFD7180B8FB0AC006A9151 /* SimpleApplication.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		A80641CC15EF9A8600C767F4 /* Services.m in Sources */ = {isa = PBXBuildFile; fileRef = A80641CB15EF9A8600C767F4 /* Services.m */; };
+		A80641CE15EF9AEC00C767F4 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A80641CD15EF9AEC00C767F4 /* AppKit.framework */; };
+		A8721A6615EFAA07004BF01A /* Download.m in Sources */ = {isa = PBXBuildFile; fileRef = A8721A6515EFAA07004BF01A /* Download.m */; };
 		A888BC2115E90F5200953B4E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A888BC2015E90F5200953B4E /* SystemConfiguration.framework */; };
 		A888BC2315E90F5900953B4E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A888BC2215E90F5900953B4E /* libz.dylib */; };
 		A888BC2515E90F6100953B4E /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A888BC2415E90F6100953B4E /* CoreServices.framework */; };
 		A888BC2715E90F6A00953B4E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A888BC2615E90F6A00953B4E /* Cocoa.framework */; };
 		A888BC2915E90F7000953B4E /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A888BC2815E90F7000953B4E /* libicucore.dylib */; };
-		A8F884BB15E7845F00E555A4 /* download.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F884BA15E7845F00E555A4 /* download.m */; };
 		A8F884F315E791B600E555A4 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F884CC15E791B500E555A4 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A8F884F415E791B600E555A4 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F884CE15E791B500E555A4 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A8F884F515E791B600E555A4 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F884D015E791B500E555A4 /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -50,13 +52,16 @@
 		52FFD71A0B8FB0BF006A9151 /* scriptLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scriptLog.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* TurboX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TurboX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A80641CA15EF9A8600C767F4 /* Services.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Services.h; sourceTree = "<group>"; };
+		A80641CB15EF9A8600C767F4 /* Services.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Services.m; sourceTree = "<group>"; };
+		A80641CD15EF9AEC00C767F4 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
+		A8721A6415EFAA07004BF01A /* Download.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Download.h; sourceTree = "<group>"; };
+		A8721A6515EFAA07004BF01A /* Download.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Download.m; sourceTree = "<group>"; };
 		A888BC2015E90F5200953B4E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		A888BC2215E90F5900953B4E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
 		A888BC2415E90F6100953B4E /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/CoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		A888BC2615E90F6A00953B4E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		A888BC2815E90F7000953B4E /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/usr/lib/libicucore.dylib; sourceTree = DEVELOPER_DIR; };
-		A8F884B915E7845F00E555A4 /* download.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = download.h; sourceTree = "<group>"; };
-		A8F884BA15E7845F00E555A4 /* download.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = download.m; sourceTree = "<group>"; };
 		A8F884CA15E791B500E555A4 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
 		A8F884CB15E791B500E555A4 /* ASIDataCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataCompressor.h; sourceTree = "<group>"; };
 		A8F884CC15E791B500E555A4 /* ASIDataCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataCompressor.m; sourceTree = "<group>"; };
@@ -107,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A80641CE15EF9AEC00C767F4 /* AppKit.framework in Frameworks */,
 				A888BC2915E90F7000953B4E /* libicucore.dylib in Frameworks */,
 				A888BC2715E90F6A00953B4E /* Cocoa.framework in Frameworks */,
 				A888BC2515E90F6100953B4E /* CoreServices.framework in Frameworks */,
@@ -124,8 +130,10 @@
 				A8F884C915E791B500E555A4 /* TondarAPI */,
 				52FFD7170B8FB0AC006A9151 /* SimpleApplication.h */,
 				52FFD7180B8FB0AC006A9151 /* SimpleApplication.m */,
-				A8F884B915E7845F00E555A4 /* download.h */,
-				A8F884BA15E7845F00E555A4 /* download.m */,
+				A80641CA15EF9A8600C767F4 /* Services.h */,
+				A80641CB15EF9A8600C767F4 /* Services.m */,
+				A8721A6415EFAA07004BF01A /* Download.h */,
+				A8721A6515EFAA07004BF01A /* Download.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -176,6 +184,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A80641CD15EF9AEC00C767F4 /* AppKit.framework */,
 				A888BC2815E90F7000953B4E /* libicucore.dylib */,
 				A888BC2615E90F6A00953B4E /* Cocoa.framework */,
 				A888BC2415E90F6100953B4E /* CoreServices.framework */,
@@ -307,7 +316,6 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				52FFD7190B8FB0AC006A9151 /* SimpleApplication.m in Sources */,
-				A8F884BB15E7845F00E555A4 /* download.m in Sources */,
 				A8F884F315E791B600E555A4 /* ASIDataCompressor.m in Sources */,
 				A8F884F415E791B600E555A4 /* ASIDataDecompressor.m in Sources */,
 				A8F884F515E791B600E555A4 /* ASIDownloadCache.m in Sources */,
@@ -326,6 +334,8 @@
 				A8F8850215E791B600E555A4 /* RegexKitLite.m in Sources */,
 				A8F8850315E791B600E555A4 /* URlEncode.m in Sources */,
 				A8F8850415E791B600E555A4 /* XunleiItemInfo.m in Sources */,
+				A80641CC15EF9A8600C767F4 /* Services.m in Sources */,
+				A8721A6615EFAA07004BF01A /* Download.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
